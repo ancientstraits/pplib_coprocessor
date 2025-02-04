@@ -111,7 +111,7 @@ jobs:
         run: dart compile exe bin/pplib_coprocessor.dart
       
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact-name }}-v${{ env.VERSION_NAME }}
           path: ${{ matrix.artifact-path }}
@@ -150,7 +150,7 @@ jobs:
         run: dart compile exe bin/pplib_coprocessor.dart
       
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact-name }}-v${{ github.event.inputs.version }}
           path: ${{ matrix.artifact-path }}
