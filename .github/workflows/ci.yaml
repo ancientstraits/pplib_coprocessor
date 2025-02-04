@@ -72,7 +72,7 @@ jobs:
             artifact-path: "bin/pplib_coprocessor.exe"
             artifact-name: pplib_coproc_linux64
             arch-name: "Linux x64"
-          - os: buildjet-2vcpu-ubuntu-2204-arm
+          - os: ubuntu-24.04-arm
             artifact-path: "bin/pplib_coprocessor.exe"
             artifact-name: pplib_coproc_linuxarm64
             arch-name: "Linux arm64"
