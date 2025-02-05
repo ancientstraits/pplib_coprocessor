@@ -123,8 +123,8 @@ jobs:
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "${{ matrix.artifact-name }}-v${{ env.VERSION_NAME }}.tar.gz"
-          tag: "2025.1.1"
+          artifacts: "${{ matrix.artifact-name }}-v${{ env.VERSION_NAME }}"
+          tag: "2025.1.2"
   
   build-arm:
     # Only do arm builds for manual releases to save those sweet sweet free runner minutes
