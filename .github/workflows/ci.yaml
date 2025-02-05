@@ -18,7 +18,8 @@ jobs:
     name: "create release"
     runs-on: ubuntu-22.04
     outputs:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
+      # upload_url: ${{ steps.create_release.outputs.upload_url }}
+      upload_url: "EEEEEEEEEEE"
     steps:
       - name: create release
         uses: actions/create-release@v1
@@ -26,8 +27,8 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: "2025.12.34"
-          tag_name: "v2025.12.34"
+          release_name: "2025.23.45"
+          tag_name: "v2025.23.45"
         env:
           GITHUB_TOKEN: ${{ github.token }}
           
