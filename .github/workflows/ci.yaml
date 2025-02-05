@@ -18,8 +18,7 @@ jobs:
     name: "create release"
     runs-on: ubuntu-22.04
     outputs:
-      # upload_url: ${{ steps.create_release.outputs.upload_url }}
-      upload_url: "EEEEEEEEEEE"
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
       - name: create release
         uses: actions/create-release@v1
@@ -27,8 +26,8 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: "2025.23.45"
-          tag_name: "v2025.23.45"
+          release_name: "2025.34.56"
+          tag_name: "v2025.34.56"
         env:
           GITHUB_TOKEN: ${{ github.token }}
           
@@ -145,7 +144,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          upload_url: ${{ needs.jobs.outputs.upload_url }}
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
           asset_path: ${{ matrix.artifact-path }}
           asset_name: "${{ matrix.artifact-name }}.exe"
 
