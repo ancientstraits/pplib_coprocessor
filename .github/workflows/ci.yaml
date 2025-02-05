@@ -123,9 +123,9 @@ jobs:
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "${{ matrix.artifact-name }}-v${{ env.VERSION_NAME }}"
+          artifacts: "*"
           tag: "2025.1.2"
-  
+
   build-arm:
     # Only do arm builds for manual releases to save those sweet sweet free runner minutes
     if: ${{ github.event_name == 'workflow_dispatch' }}
