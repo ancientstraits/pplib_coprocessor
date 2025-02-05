@@ -26,8 +26,8 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: "2025.34.56"
-          tag_name: "v2025.34.56"
+          release_name: "2025.34.57"
+          tag_name: "v2025.34.57"
         env:
           GITHUB_TOKEN: ${{ github.token }}
           
@@ -83,18 +83,22 @@ jobs:
             artifact-path: "bin/pplib_coprocessor.exe"
             artifact-name: pplib_coproc_win64
             arch-name: "Windows x64"
+            mime-type: "application/x-ms-application"
           - os: macos-13
             artifact-path: "bin/pplib_coprocessor.exe"
             artifact-name: pplib_coproc_macos
             arch-name: "MacOS Universal"
+            mime-type: "application/x-mach-binary"
           - os: ubuntu-22.04
             artifact-path: "bin/pplib_coprocessor.exe"
             artifact-name: pplib_coproc_linux64
             arch-name: "Linux x64"
+            mime-type: "application/x-elf"
           - os: ubuntu-24.04-arm
             artifact-path: "bin/pplib_coprocessor.exe"
             artifact-name: pplib_coproc_linuxarm64
             arch-name: "Linux arm64"
+            mime-type: "application/x-elf"
     name: "Build - ${{ matrix.arch-name }}"
     runs-on: ${{ matrix.os }}
     steps:
@@ -147,6 +151,7 @@ jobs:
           upload_url: ${{ needs.create-release.outputs.upload_url }}
           asset_path: ${{ matrix.artifact-path }}
           asset_name: "${{ matrix.artifact-name }}.exe"
+          asset_content_type: ${{ matrix.mime-type }}
 
   build-arm:
     # Only do arm builds for manual releases to save those sweet sweet free runner minutes
